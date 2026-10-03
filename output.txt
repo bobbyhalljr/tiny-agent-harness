@@ -1,0 +1,25 @@
+Run 1: release notes
+  1  call     read_file(CHANGELOG.md)
+  1  result   1.4.0: fix retry backoff, add CSV export
+  2  call     write_file(RELEASE.md::Fixed retry backoff. Added CSV export.)
+  2  result   wrote RELEASE.md
+  3  call     send_email(team@example.com)
+  3  approved approver said yes
+  3  result   sent to team@example.com
+  4  call     delete_branch(release/1.4.0)
+  4  blocked  denied by policy
+  5  stop     Release notes written and sent.
+
+Run 2: a model that never finishes
+  1  call     read_file(CHANGELOG.md)
+  1  result   1.4.0: fix retry backoff, add CSV export
+  2  call     read_file(CHANGELOG.md)
+  2  result   1.4.0: fix retry backoff, add CSV export
+  3  trim     dropped 2 old messages
+  3  call     read_file(CHANGELOG.md)
+  3  result   1.4.0: fix retry backoff, add CSV export
+  4  trim     dropped 4 old messages
+  4  call     read_file(CHANGELOG.md)
+  4  result   1.4.0: fix retry backoff, add CSV export
+  4  stop     step budget reached
+

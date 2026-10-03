@@ -1,0 +1,25 @@
+{
+  "name": "tiny-agent-harness",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A tiny agent harness in TypeScript: tool registry, allow/ask/deny permissions, context trimming, step budget, event log. Mocked model, no API key.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Bobby Hall Jr (https://bhjr.dev)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobbyhalljr/tiny-agent-harness.git"
+  },
+  "scripts": {
+    "start": "tsx harness.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
